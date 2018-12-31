@@ -25,12 +25,12 @@
         <br>
       
          Salary:<br>
-        <input type="tel" name="sal" required>
+        <input type="number" name="sal" required>
         <br>
         <br>
-        AccountType:<br>
-         <input type="radio" name="saltype" value="y" > salaried<br>
-  		 <input type="radio" name="saltype" value="n"> not salaried<br>
+        Salaried?<br>
+         <input type="radio" name="saltype" value="y" > Yes<br>
+  		 <input type="radio" name="saltype" value="n"> No<br>
               <br>
               <br>
              
@@ -38,9 +38,12 @@
         <input type="submit"  value="Reset"> 
         </article>
      </form>
+     <div>
+		<jsp:include page="homeLink.html"></jsp:include>
+	</div>
 <footer>
                 
-                <p>Copyright Â© 2018 Citigroup Inc.</p>
+                <p>Copyright © 2018 Citigroup Inc.</p>
         
  </footer>
 </body>
