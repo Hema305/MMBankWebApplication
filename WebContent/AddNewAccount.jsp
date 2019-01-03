@@ -35,12 +35,10 @@
               <br>
              
         <input type="submit"  value="Submit"> &nbsp; &nbsp;
-        <input type="submit"  value="Reset"> 
+        <input type="reset"  value="Reset"> 
         </article>
      </form>
-     <div>
-		<jsp:include page="homeLink.html"></jsp:include>
-	</div>
+     
 <footer>
                 
                 <p>Copyright © 2018 Citigroup Inc.</p>

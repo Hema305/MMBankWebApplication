@@ -31,7 +31,7 @@ import com.moneymoney.exception.AccountNotFoundException;
 import com.mysql.fabric.Response;
 
 @WebServlet("*.mm")
-public class controller extends HttpServlet {
+public class Controller extends HttpServlet {
 	boolean flag = false;
 	private SavingsAccountServiceImpl savingsAccountService;
 	private RequestDispatcher dispatcher;
@@ -260,125 +260,157 @@ public class controller extends HttpServlet {
 				}
 				
 				break;
-				
-case "/sortByName.mm":
-				
-				try {
-					
-					flag=!flag;
-					ArrayList< SavingsAccount>accounts=new ArrayList<SavingsAccount>();
-				/*	Collection<SavingsAccount> accounts = savingsAccountService.getAllSavingsAccount();
-					Set<SavingsAccount> accountSet = new TreeSet<>(new Comparator<SavingsAccount>()*/ 
-					accounts=(ArrayList<SavingsAccount>)savingsAccountService.getAllSavingsAccount();
-					Collections.sort(accounts, new Comparator<SavingsAccount>() 
-					{
-						@Override
-						public int compare(SavingsAccount arg0, SavingsAccount arg1) {
-							
-							int result= (arg0.getBankAccount().getAccountHolderName().compareTo
-									(arg1.getBankAccount().getAccountHolderName()));
-							if(flag==true)
-								return result;
-							else
-								return -result;
 								
-						}
-						
-						
-					});
-					/*accountSet.addAll(accounts);
-					request.setAttribute("accounts", accountSet);*/
-					request.setAttribute("accounts", accounts);
-					dispatcher = request.getRequestDispatcher("AccountDetails.jsp");
-					dispatcher.forward(request, response);
-				} catch (ClassNotFoundException | SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				break;
-				
-case "/sortByBalance.mm":
-				
-				try {
-					
-					flag=!flag;
-					ArrayList< SavingsAccount>accounts=new ArrayList<SavingsAccount>();
-				/*	Collection<SavingsAccount> accounts = savingsAccountService.getAllSavingsAccount();
-					Set<SavingsAccount> accountSet = new TreeSet<>(new Comparator<SavingsAccount>()*/ 
-					accounts=(ArrayList<SavingsAccount>)savingsAccountService.getAllSavingsAccount();
-					Collections.sort(accounts, new Comparator<SavingsAccount>() 
-					{
-						@Override
-						public int compare(SavingsAccount arg0, SavingsAccount arg1) {
-							
-							int result= (int) (arg0.getBankAccount().getAccountBalance()-
-									(arg1.getBankAccount().getAccountBalance()));
-							if(flag==true)
-								return result;
-							else
-								return -result;
+				case "/sortByName.mm":
 								
-						}
-						
-						
-					});
-					/*accountSet.addAll(accounts);
-					request.setAttribute("accounts", accountSet);*/
-					request.setAttribute("accounts", accounts);
-					dispatcher = request.getRequestDispatcher("AccountDetails.jsp");
-					dispatcher.forward(request, response);
-				} catch (ClassNotFoundException | SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				break;
-case "/sortBySalaryType.mm":
-	
-	try {
-		
-		flag=!flag;
-		ArrayList< SavingsAccount>accounts=new ArrayList<SavingsAccount>();
-	/*	Collection<SavingsAccount> accounts = savingsAccountService.getAllSavingsAccount();
-		Set<SavingsAccount> accountSet = new TreeSet<>(new Comparator<SavingsAccount>()*/ 
-		accounts=(ArrayList<SavingsAccount>)savingsAccountService.getAllSavingsAccount();
-		Collections.sort(accounts, new Comparator<SavingsAccount>() 
-		{
-		
-		
-				
-			
-				@Override
-				public int compare(SavingsAccount arg0, SavingsAccount arg1) {
-					int result= Boolean.compare(arg0.isSalary(), arg1.isSalary());
-					if(flag==true)
-						return result;
-					else
-						return -result;
-						
+								try {
+									
+									flag=!flag;
+									ArrayList< SavingsAccount>accounts=new ArrayList<SavingsAccount>();
+								/*	Collection<SavingsAccount> accounts = savingsAccountService.getAllSavingsAccount();
+									Set<SavingsAccount> accountSet = new TreeSet<>(new Comparator<SavingsAccount>()*/ 
+									accounts=(ArrayList<SavingsAccount>)savingsAccountService.getAllSavingsAccount();
+									Collections.sort(accounts, new Comparator<SavingsAccount>() 
+									{
+										@Override
+										public int compare(SavingsAccount arg0, SavingsAccount arg1) {
+											
+											int result= (arg0.getBankAccount().getAccountHolderName().compareTo
+													(arg1.getBankAccount().getAccountHolderName()));
+											if(flag==true)
+												return result;
+											else
+												return -result;
+												
+										}
+										
+										
+									});
+									/*accountSet.addAll(accounts);
+									request.setAttribute("accounts", accountSet);*/
+									request.setAttribute("accounts", accounts);
+									dispatcher = request.getRequestDispatcher("AccountDetails.jsp");
+									dispatcher.forward(request, response);
+								} catch (ClassNotFoundException | SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								
+								break;
+								
+				case "/sortByBalance.mm":
+								
+								try {
+									
+									flag=!flag;
+									ArrayList< SavingsAccount>accounts=new ArrayList<SavingsAccount>();
+								/*	Collection<SavingsAccount> accounts = savingsAccountService.getAllSavingsAccount();
+									Set<SavingsAccount> accountSet = new TreeSet<>(new Comparator<SavingsAccount>()*/ 
+									accounts=(ArrayList<SavingsAccount>)savingsAccountService.getAllSavingsAccount();
+									Collections.sort(accounts, new Comparator<SavingsAccount>() 
+									{
+										@Override
+										public int compare(SavingsAccount arg0, SavingsAccount arg1) {
+											
+											int result= (int) (arg0.getBankAccount().getAccountBalance()-
+													(arg1.getBankAccount().getAccountBalance()));
+											if(flag==true)
+												return result;
+											else
+												return -result;
+												
+										}
+										
+										
+									});
+									/*accountSet.addAll(accounts);
+									request.setAttribute("accounts", accountSet);*/
+									request.setAttribute("accounts", accounts);
+									dispatcher = request.getRequestDispatcher("AccountDetails.jsp");
+									dispatcher.forward(request, response);
+								} catch (ClassNotFoundException | SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								
+								break;
+				case "/sortBySalaryType.mm":
 					
-				}
-				
-			
-			
-			
-		});
-		/*accountSet.addAll(accounts);
-		request.setAttribute("accounts", accountSet);*/
-		request.setAttribute("accounts", accounts);
-		dispatcher = request.getRequestDispatcher("AccountDetails.jsp");
-		dispatcher.forward(request, response);
-	} catch (ClassNotFoundException | SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	break;
-
-				default:
+					try {
+						
+						flag=!flag;
+						ArrayList< SavingsAccount>accounts=new ArrayList<SavingsAccount>();
+					/*	Collection<SavingsAccount> accounts = savingsAccountService.getAllSavingsAccount();
+						Set<SavingsAccount> accountSet = new TreeSet<>(new Comparator<SavingsAccount>()*/ 
+						accounts=(ArrayList<SavingsAccount>)savingsAccountService.getAllSavingsAccount();
+						Collections.sort(accounts, new Comparator<SavingsAccount>() 
+						{
+						
+						
+								
+							
+								@Override
+								public int compare(SavingsAccount arg0, SavingsAccount arg1) {
+									int result= Boolean.compare(arg0.isSalary(), arg1.isSalary());
+									if(flag==true)
+										return result;
+									else
+										return -result;
+										
+									
+								}
+								
+							
+							
+							
+						});
+						/*accountSet.addAll(accounts);
+						request.setAttribute("accounts", accountSet);*/
+						request.setAttribute("accounts", accounts);
+						dispatcher = request.getRequestDispatcher("AccountDetails.jsp");
+						dispatcher.forward(request, response);
+					} catch (ClassNotFoundException | SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 					break;
-		}
+				case"/updateForm.mm":
+					response.sendRedirect("update.html");
+					break;
+				case"/update.mm":
+						accountNumber = Integer.parseInt(request.getParameter("acctNum"));
+				try {
+					SavingsAccount accountUpdate = savingsAccountService.getAccountById(accountNumber);
+					request.setAttribute("accounts", accountUpdate);
+					dispatcher = request.getRequestDispatcher("UpdateDetails.jsp");
+					dispatcher.forward(request, response);
+				} catch (ClassNotFoundException | SQLException| AccountNotFoundException e) {
+					e.printStackTrace();
+				}
+					break;
+				case "/updateAccount.mm":
+					accountNumber = Integer.parseInt(request.getParameter("acctNum"));
+				SavingsAccount accountUpdate;
+				try {
+					accountUpdate = savingsAccountService.getAccountById(accountNumber);
+					accountHolderName = request.getParameter("Acct_Hname");
+					accountUpdate.getBankAccount().setAccountHolderName(accountHolderName);
+					salary = Double.parseDouble(request.getParameter("sal"));
+					boolean isSalary = request.getParameter("saltype").equalsIgnoreCase("no")?false:true;
+					accountUpdate.setSalary(isSalary);
+					savingsAccountService.updateAccount(accountUpdate);
+					response.sendRedirect("getAll.mm");
+				} catch (ClassNotFoundException | SQLException
+						| AccountNotFoundException e) {
+					e.printStackTrace();
+				}
+					break;
+					
+
+					default:
+						break;
+						}
 		
 		
 			
